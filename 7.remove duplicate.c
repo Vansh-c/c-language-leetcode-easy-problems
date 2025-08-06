@@ -30,10 +30,11 @@ int main()
     int l = sizeof(a) / sizeof(int) ; 
 
 
-    removeDuplicates(a , l) ; 
+    int len = removeDuplicates(a , l) ; 
+    printf("\nthe new length is %d\n"  , len) ; 
 
-    // for(int i = 0 ; i<l ; i++){
-    //     printf("%d ", a[i]) ; 
-    // }
+    for(int i = 0 ; i<len ; i++){
+        printf("%d ", a[i]) ; 
+    }
     return 0 ;
 }

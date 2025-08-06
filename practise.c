@@ -1,34 +1,50 @@
-#include <stdio.h>
+#include <stdio.h> 
+#include <string.h> 
 
-void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
-    int i = m - 1;          
-    int j = n - 1;           
-    int k = m + n - 1;       
+int strStr(char *s1 , char *s2){
+    int l1 = strlen(s1) ; 
+    int l2 = strlen(s2) ;
+    int find = 0 ; 
 
-    while (i >= 0 && j >= 0) {
-        if (nums1[i] > nums2[j]) {
-            nums1[k--] = nums1[i--];
-        } else {
-            nums1[k--] = nums2[j--];
+    int i = 0 ; 
+    int j = 0 ; 
+
+    while(i<l1){
+        int n = 0 ; 
+        j = 0 ; 
+
+        while(j<l2){
+            if(s2[j]!=s1[i]){
+                 if(j>0){
+                    i = i-j ; 
+
+                 }
+                 n=1 ;
+                  break ; 
+            }
+
+            i++ ; 
+            j++ ; 
         }
+
+        if(n==0){
+            find = i - j ; 
+            printf("%d" , find) ; 
+            return 0 ; 
+        }
+
+        i++ ; 
     }
 
-    while (j >= 0) {
-        nums1[k--] = nums2[j--];
-    }
+    return -1 ; 
+
 }
 
-int main() {
-    int nums1[6] = {1, 2, 3, 0, 0, 0};
-    int nums2[3] = {2, 5, 6};
-    int m = 3;
-    int n = 3;
+int main()
+{
 
-    merge(nums1, 6, m, nums2, 3, n);
+    char *s1 = "mississippi" ; 
+    char *s2 = "issip" ; 
+    strStr(s1,s2) ;
 
-    for (int i = 0; i < m + n; i++) {
-        printf("%d ", nums1[i]);
-    }
-
-    return 0;
 }
