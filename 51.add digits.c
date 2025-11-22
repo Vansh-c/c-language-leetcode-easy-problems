@@ -1,5 +1,4 @@
-#include <stdio.h>
-// this is my solution vansh joshi style. not english uncle . 
+#include <stdio.h> 
 
 int addDigits(int num) {
     if(num==0){
@@ -32,4 +31,5 @@ int main()
 
 
     return 0 ; 
+
 }
